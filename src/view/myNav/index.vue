@@ -1,24 +1,34 @@
 <template>
     <div class="my-nav-box">
+        <!-- 类型导航 -->
         <div class="nav-type-box">
             <div v-for="item in barList" :key="item.name" class="bar-item" @click="checkTypeNav(item)">
                 {{ item.name }}
             </div>
         </div>
+        <!-- 导航类表 -->
         <div class="nav-content-box">
-            <div v-for="item in checkedItem.children" class="nav-item" @click="navClick(item)">
-                <div v-if="item.type === 'text'" class="text-nav">
-                    {{ item.name }}
+            <template v-for="item in checkedItem.children">
+                <div class="nav-item" @click="navClick(item)" v-if="item.type !== 'title'">
+                    <div v-if="item.type === 'text'" class="text-nav">
+                        {{ item.name }}
+                    </div>
+                    <div v-else>
+                        <img :src="item.Icon" alt="">
+                        <div>{{ item.name }}</div>
+                    </div>
+                    <div class="intro-box">
+                        {{ item.intro }}
+                        <div class="arrow"></div>
+                    </div>
                 </div>
-                <div v-else>
-                    <img :src="item.Icon" alt="">
-                    <div>{{ item.name }}</div>
+                <div v-else class="nav-title">
+                    <span> {{ item.name }}</span>
                 </div>
-                <div class="intro-box">
-                    {{ item.intro }}
-                    <div class="arrow"></div>
-                </div>
-            </div>
+            </template>
+        </div>
+        <div class="goHome">
+            >
         </div>
     </div>
 </template>
@@ -68,14 +78,32 @@ function navClick(item) {
             cursor: pointer;
         }
     }
-
     .nav-content-box {
         flex: 1;
         border: 6px solid rgba(0, 0, 0, 0.8);
         box-sizing: border-box;
         padding: 1rem;
-        display: flex;
         box-shadow: inset 0px 0px 6px 2px rgba(0, 0, 0, 0.8);
+        overflow: auto;
+        .nav-title {
+            border-left: 6px solid rgb(10, 142, 249);
+            height: 3rem;
+            line-height: 3rem;
+            width: 100%;
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin: 1rem 0;
+            clear: both;
+            >span {
+                display: inline-block;
+                padding-left: 1rem;
+                width: 15rem;
+                background: rgb(160, 246, 241);
+                border-top-right-radius:1.5rem;
+                border-bottom-right-radius:1.5rem;
+                color: rgb(46, 46, 50);
+            }
+        }
 
         .nav-item {
             width: 6rem;
@@ -89,7 +117,8 @@ function navClick(item) {
             background-color: orange;
             cursor: pointer;
             position: relative;
-
+            float: left;
+            margin-bottom: 1rem;
             .text-nav {
                 height: 100%;
                 text-align: center;
@@ -136,5 +165,20 @@ function navClick(item) {
         }
 
     }
-}
-</style>
+    .goHome{
+       width: 3rem;
+       height: 3rem;
+       text-align: center;
+       line-height: 3rem;
+       color: white;
+       font-weight: bold;
+       cursor: pointer;
+       box-shadow: 1px 1px 4px 0.5px rgba(0,0,0,0.8);
+       border: 2px solid skyblue;
+       border-radius: 50%;
+       background-color: chocolate;
+       position: fixed;
+       bottom: 3rem;
+       right: 3rem; 
+    }
+}</style>
