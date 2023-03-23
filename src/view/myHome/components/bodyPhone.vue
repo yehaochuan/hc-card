@@ -32,7 +32,7 @@ function handerClick(item) {
 .body-content {
   display: flex;
   margin: 0 auto;
-  width: 900px;
+  width: 60rem;
 
   .left-box {
     flex: 1;

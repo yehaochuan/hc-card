@@ -3,6 +3,16 @@ import cssSvg from '/@/assets/css.svg'
 import waveSvg from '/@/assets/wave.svg'
 import loadingSvg from '/@/assets/loading.svg'
 import borderSvg from '/@/assets/border.svg'
+import githubSvg from '/@/assets/github.svg'
+import giteeSvg from '/@/assets/gitee.svg'
+import nelitfySvg from '/@/assets/nelitfy.svg'
+import animeSvg from '/@/assets/anime.svg'
+import xyzSvg from '/@/assets/xyz.svg'
+import codeuiSvg from '/@/assets/codeui.svg'
+import fontSvg from '/@/assets/font.svg'
+
+
+
 export const barList = [
     {
         name: 'JS',
@@ -79,28 +89,123 @@ export const barList = [
         name: '动画',
         children: [
             {
-                name: ' animeJs',
-                type: 'text',
+                name: '常用动画库',
+                type: 'title'
+            },
+            {
+                name: 'animeJs',
+                Icon: animeSvg,
                 intro: '超级轻量级，动画库！',
                 url: 'https://animejs.com/'
             },
             {
                 name: ' XYZ',
-                type: 'text',
+                Icon: xyzSvg,
                 intro: '自定义和组合复杂的动画！',
                 url: 'https://animxyz.com/'
             },
             {
-                name: ' codemyui',
-                type: 'text',
+                name: 'codemyui',
+                Icon: codeuiSvg,
                 intro: '各种动画实例',
                 url: 'https://codemyui.com/'
             },
         ]
     },
+    {
+        name: '图标',
+        children: [
+            {
+                name: '常用图标库',
+                type: 'title'
+            },
+            {
+                name: 'iconfont',
+                Icon: fontSvg,
+                intro: '阿里字体图标库！',
+                url: 'https://animejs.com/'
+            },
+            {
+                name: 'iconify',
+                type: 'text',
+                intro: 'iconify.design ！',
+                url: 'https://icon-sets.iconify.design/'
+            },
+        ]
+    },
     { name: '工具' },
-    { name: '仓库' },
-    { name: '部署' },
+    {
+        name: '仓库',
+        children: [
+            {
+                name: '代码仓库',
+                type: 'title'
+            },
+            {
+                Icon: githubSvg,
+                type: 'icon',
+                intro: 'github -> 全球代码仓库',
+                url: 'https://github.com/'
+            },
+            {
+                Icon: giteeSvg,
+                type: 'icon',
+                intro: 'gitee -> 国内代码仓库',
+                url: 'https://gitee.com/'
+            },
+        ]
+
+    },
+    {
+        name: '部署',
+        children: [
+            {
+                name: '部署工具',
+                type: 'title'
+            },
+            {
+                Icon: nelitfySvg,
+                name: 'netlify',
+                intro: 'netlify -> 自动化免费部署',
+                url: 'https://app.netlify.com/'
+            },
+        ]
+    },
+    {
+        name: '社区',
+        children: [
+            {
+                name: '常用图标库',
+                type: 'title'
+            },
+            {
+                name: '掘金',
+                type: 'text',
+                intro: '掘金',
+                url: '/'
+            },
+            {
+                name: 'CSDN',
+                type: 'text',
+                intro: '掘金',
+                url: '/'
+            },
+            {
+                name: '腾讯云',
+                type: 'text',
+                intro: '掘金',
+                url: '/'
+            },
+            {
+                name: '阿里云',
+                type: 'text',
+                intro: '掘金',
+                url: '/'
+            },
+        ]
+    },
+    { name: '笔记' },
+    { name: '算法' },
     { name: '测试' },
 ]
 

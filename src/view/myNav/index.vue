@@ -13,6 +13,9 @@
                     <div v-if="item.type === 'text'" class="text-nav">
                         {{ item.name }}
                     </div>
+                    <div v-else-if="item.type === 'icon'" class="icon-nav">
+                        <img :src="item.Icon" alt="">
+                    </div>
                     <div v-else>
                         <img :src="item.Icon" alt="">
                         <div>{{ item.name }}</div>
@@ -50,7 +53,7 @@ function navClick(item) {
 .my-nav-box {
     height: 100%;
     display: flex;
-    background: yellow;
+    background: rgb(187, 246, 8);
 
     .nav-type-box {
         width: 5rem;
@@ -87,18 +90,20 @@ function navClick(item) {
         overflow: auto;
         .nav-title {
             border-left: 6px solid rgb(10, 142, 249);
-            height: 3rem;
-            line-height: 3rem;
+            height: 2rem;
+            line-height: 2rem;
             width: 100%;
             font-weight: bold;
-            font-size: 1.4rem;
+            font-size: 1rem;
             margin: 1rem 0;
             clear: both;
+           
             >span {
-                display: inline-block;
+                display: inline-block; 
+                box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.2);
                 padding-left: 1rem;
-                width: 15rem;
-                background: rgb(160, 246, 241);
+                width: 22rem;
+                background: #c4f3fa;
                 border-top-right-radius:1.5rem;
                 border-bottom-right-radius:1.5rem;
                 color: rgb(46, 46, 50);
@@ -114,11 +119,13 @@ function navClick(item) {
             border-radius: 6px;
             box-sizing: border-box;
             padding: 0.2rem 0;
-            background-color: orange;
+            background-color: #ecf4be;
+            transition: all 0.5s;
             cursor: pointer;
             position: relative;
             float: left;
             margin-bottom: 1rem;
+            color: #444;
             .text-nav {
                 height: 100%;
                 text-align: center;
@@ -127,11 +134,13 @@ function navClick(item) {
                 font-size: 1.2rem;
                 color: #666;
             }
-
+            .icon-nav{
+                padding-top: 1rem;
+            }
             img {
                 width: 3rem;
                 height: 3rem;
-                margin-bottom: 0.3rem;
+                margin: 0.3rem 0;
             }
 
             .intro-box {
@@ -162,6 +171,9 @@ function navClick(item) {
 
                 }
             }
+        }
+        .nav-item:hover {
+            box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.4);
         }
 
     }
