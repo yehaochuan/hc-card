@@ -1,0 +1,11 @@
+.title-body {
+    width: calc(100% - 40px);
+    margin: 10px 20px;
+    background-color: #2e2e32;
+    border: 1px solid rgba(240, 240, 242, 0.1);
+    height: 36px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}

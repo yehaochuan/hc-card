@@ -1,0 +1,32 @@
+.nav-box {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: #0b090e;
+    overflow: auto;
+}
+
+
+.nav-tag-box{
+    width: calc(100% - 40px);
+    margin: 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+.content-box {
+    position: relative;
+}
+.nav-tag-item {
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 2px solid #4e8796;
+    margin-right: 20px;
+    color: #56dcd8;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+.nav-tag-item:hover{
+    box-shadow: inset 0px 0px 10px 1px #56dcd8;
+}

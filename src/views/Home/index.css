@@ -1,0 +1,7 @@
+.card-body-box {
+    height: calc(100% - 48px);
+    overflow: hidden;
+    box-sizing: border-box;
+    transform-style: preserve-3d;
+    perspective-origin: center center;
+}

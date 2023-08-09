@@ -1,0 +1,34 @@
+.welcome-font {
+    width: 600px;
+    height: 240px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    position: relative;
+}
+
+.welcome-font-item {
+    width: 100px;
+    height: 100px;
+
+}
+
+
+.bottom-arrow {
+    width: 0px;
+    height: 0;
+    border-top: 14px solid #1b9d9d;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    position: fixed;
+    bottom: 0px;
+    left: calc(50% - 30px);
+    cursor: pointer;
+}
+
+svg path {
+    margin: 0 auto;
+}
