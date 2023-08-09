@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import anime from 'animejs'
 import './index.css'
-import Welcome from './Welcome'
+import Welcome from '../Welcome/welcome'
 
 
 export default function Section() {
@@ -17,20 +17,20 @@ export default function Section() {
     )
 }
 
-export function bottomPage() {
-    anime({
-        targets: 'section:first-child',
-        translateY: '-100%',
-        rotateX: '90deg',
-        duration: 6000
-    });
-    anime({
-        targets: 'section:last-child',
-        translateY: '-100%',
-        rotateX: '0deg',
-        duration: 6000
-    });
-}
+// function bottomPage() {
+//     anime({
+//         targets: 'section:first-child',
+//         translateY: '-100%',
+//         rotateX: '90deg',
+//         duration: 6000
+//     });
+//     anime({
+//         targets: 'section:last-child',
+//         translateY: '-100%',
+//         rotateX: '0deg',
+//         duration: 6000
+//     });
+// }
 
 export function topPage() {
     anime({

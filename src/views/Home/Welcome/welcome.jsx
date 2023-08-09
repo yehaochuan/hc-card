@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 import anime from 'animejs'
-import './index.css'
-import { bottomPage } from '../index'
-
+import './welcome.css'
 
 export default function Welcome() {
   useEffect(() => {
@@ -33,10 +31,10 @@ export default function Welcome() {
   )
 }
 
-function svgClick(e) {
-  animeStep1()
-  console.log(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
-}
+// function svgClick(e) {
+//   animeStep1()
+//   console.log(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
+// }
 
 function animeStep1() {
   anime({
@@ -58,3 +56,19 @@ const letterList = [
   { name: 'O', path: 'M18 9a5 5 0 0 0-5-5h-2a5 5 0 0 0-5 5v6a5 5 0 0 0 5 5h2a5 5 0 0 0 5-5V9' },
   { name: 'M', path: 'M6 20V4l6 14l6-14v16' },
 ]
+
+
+function bottomPage() {
+  anime({
+      targets: 'section:first-child',
+      translateY: '-100%',
+      rotateX: '90deg',
+      duration: 6000
+  });
+  anime({
+      targets: 'section:last-child',
+      translateY: '-100%',
+      rotateX: '0deg',
+      duration: 6000
+  });
+}
