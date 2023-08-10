@@ -15,7 +15,7 @@ export default function Welcome() {
   }, [])
   return (
     <>
-      <div className='welcome-font'>
+      <div className='welcome-font-box'>
         {letterList.map(item => {
           return (
             <svg className='welcome-font-item' key={item.name} viewBox="0 0 35 35">

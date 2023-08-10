@@ -1,5 +1,7 @@
 import { useRoutes, Navigate } from "react-router-dom";
+import Loading from '../views/Loading'
 import React from 'react';
+import Home from '../views/Home'
 export default function Element() {
     return useRoutes([
         {
@@ -8,23 +10,29 @@ export default function Element() {
         },
         {
             path: '/',
-            element: LazyLoad('/Home'),
+            element: Home(),
             children: [
                 {
                     path: '/Home',
                     element: LazyLoad('/Home/Main'),
-                    key: '1'
+                    key: 'Home'
                 },
                 {
                     path: '/Home/Nav',
                     element: LazyLoad('/Nav'),
-                    key: 'nav'
+                    key: 'Nav'
                 },
+                {
+                    path: '*',
+                    element: LazyLoad('/notFound'),
+                    key: 'notFound'
+                }
             ]
         },
         {
             path: '*',
-            element: LazyLoad('/notFound')
+            element: LazyLoad('/notFound'),
+            key: 'notFound'
         }
     ])
 }
@@ -33,7 +41,7 @@ export default function Element() {
 export const LazyLoad = (path) => {
     const Comp = React.lazy(() => import(`../views${path}`))
     return (
-        <React.Suspense fallback={<> 加载中。。。</>}>
+        <React.Suspense fallback={Loading()}>
             <Comp />
         </React.Suspense>
     )

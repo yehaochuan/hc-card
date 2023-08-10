@@ -80,7 +80,7 @@
 
 @media screen and (max-width: 850px) {
     .content-box {
-        margin-left: 0;
-        width: 100%;
+        margin-left: 0 !important;
+        width: 100% !important;
     }
 }
