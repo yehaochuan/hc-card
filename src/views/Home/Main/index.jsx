@@ -11,44 +11,46 @@ export default function Section() {
                 <Welcome />
             </section>
             <section style={{ transform: 'translateY(0) rotateX(-90deg)' }} key={'bottom'}>
-                12345
+                <button onClick={rotateObj.top}> top </button>
             </section>
         </div >
     )
 }
 
-// function bottomPage() {
-//     anime({
-//         targets: 'section:first-child',
-//         translateY: '-100%',
-//         rotateX: '90deg',
-//         duration: 6000
-//     });
-//     anime({
-//         targets: 'section:last-child',
-//         translateY: '-100%',
-//         rotateX: '0deg',
-//         duration: 6000
-//     });
-// }
-
-export function topPage() {
-    anime({
-        targets: 'section:first-child',
-        translateY: '0',
-        rotateX: '0',
-        duration: 6000
-    });
-    anime({
-        targets: 'section:last-child',
-        translateY: '0',
-        rotateX: '-90deg',
-        duration: 6000
-    });
+export const rotateObj = {
+    top() {
+        anime({
+            targets: 'section:first-child',
+            translateY: '0',
+            rotateX: '0',
+            easing:  'spring(1, 50, 10, 0)',
+            duration: 1000
+        });
+        anime({
+            targets: 'section:last-child',
+            translateY: '0',
+            rotateX: '-90deg',
+            easing:  'spring(1, 50, 10, 0)',
+            duration: 1000
+        });
+    },
+    bottom() {
+        anime({
+            targets: 'section:first-child',
+            translateY: '-100%',
+            rotateX: '90deg',
+            easing:  'spring(1, 50, 10, 0)',
+            duration: 1000
+        });
+        anime({
+            targets: 'section:last-child',
+            translateY: '-100%',
+            rotateX: '0deg',
+            easing:  'spring(1, 50, 10, 0)',
+            duration: 1000
+        });
+    }
 }
-
-
-
 // function setScrollFun() {
 //     window.onmousewheel = scrollFunc;
 //     document.onmousewheel = scrollFunc;

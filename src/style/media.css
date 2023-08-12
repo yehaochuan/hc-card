@@ -83,4 +83,13 @@
         margin-left: 0 !important;
         width: 100% !important;
     }
+
+    .menu_phone_box {
+        display: block !important;
+    }
+
+    .menu_pc_box {
+        display: none !important;
+    }
+
 }

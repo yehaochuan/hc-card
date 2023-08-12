@@ -18,15 +18,12 @@
 
 
 .bottom-arrow {
-    width: 0px;
-    height: 0;
-    border-top: 14px solid #1b9d9d;
-    border-left: 30px solid transparent;
-    border-right: 30px solid transparent;
-    border-bottom: 30px solid transparent;
+    width: 3rem;
+    height: 2rem;
+    text-align: center;
     position: fixed;
-    bottom: 0px;
-    left: calc(50% - 30px);
+    bottom: 14px;
+    left: calc(50% - 1.5rem);
     cursor: pointer;
 }
 
