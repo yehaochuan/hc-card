@@ -9,11 +9,21 @@ export default function index({ list, titleName }) {
             </div>
             {list.map(item => {
                 return (
-                    <div className='nav-item' key={item.name}>
-                        <a href={'#' + item.id}> {item.name}</a>
+                    <div className='nav-item' key={item.name} onClick={() => scrollToAnchor(item.name)}>
+                        {item.name}
                     </div>
                 )
             })}
         </div>
     )
+}
+
+function scrollToAnchor(id) {
+    if (id) {
+        // 找到锚点
+        let anchorElement = document.getElementById(id);
+        // 如果对应id的锚点存在，就跳转到锚点
+        if (anchorElement) { anchorElement.scrollIntoView({ block: 'start', behavior: 'smooth' }); }
+    }
+
 }

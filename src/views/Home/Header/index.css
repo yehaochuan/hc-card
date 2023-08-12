@@ -2,12 +2,12 @@ header {
     height: 48px;
     box-sizing: border-box;
     background-color: rgba(17, 12, 12, 0.95);
-    border-bottom: 1px solid rgba(0, 0, 0, .65);
     color: #cccac9;
     display: flex;
     align-items: center;
     justify-content: space-between;
     overflow-x: hidden;
+
 }
 
 img {

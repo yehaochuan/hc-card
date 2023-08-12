@@ -8,12 +8,16 @@ body,
   height: 100%;
   margin: 0;
 }
+a {
+  text-decoration: none !important;
+}
+
 
 .content-box {
   width: 50rem;
   border-radius: 4px;
   background-color: #242429;
-  height: calc(100% - 8px);
+  min-height: calc(100% - 8px);
   margin-left: calc(50% - 33rem);
   margin-top: 8px;
   color: #D3D3D3;
@@ -29,3 +33,25 @@ body,
   padding-bottom: 10px;
 }
 
+
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  /*滚动条的宽度*/
+  height: 10px;
+  /*滚动条的高度*/
+}
+
+::-webkit-scrollbar-thumb {
+  /*垂直滚动条的样式*/
+  background-color: #999;
+  border-radius: 5px;
+  border: 2px solid #2e2e32;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+  /*滚动条的hover样式*/
+  background-color: #14b9f0;
+}
