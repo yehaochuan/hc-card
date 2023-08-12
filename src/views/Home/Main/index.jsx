@@ -1,6 +1,5 @@
 import React from 'react'
 import anime from 'animejs'
-import './index.css'
 import Welcome from '../Welcome/welcome'
 
 

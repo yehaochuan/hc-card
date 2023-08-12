@@ -8,12 +8,12 @@ export default function Header() {
     return (
         <header>
             <img src="../../../logo.png" alt="logo" />
-            <PC_Menu list={menuConfig.list} navigate={navigate} />
-            <Phone_Menu list={menuConfig.list} navigate={navigate} />
+            <PcMenu list={menuConfig.list} navigate={navigate} />
+            <PhoneMenu list={menuConfig.list} navigate={navigate} />
         </header>
     )
 }
-function PC_Menu({ list, navigate }) {
+function PcMenu({ list, navigate }) {
 
     return (
         <div className="menu_pc_box">
@@ -35,7 +35,7 @@ function PC_Menu({ list, navigate }) {
     )
 }
 
-function Phone_Menu({ list, navigate }) {
+function PhoneMenu({ list, navigate }) {
     let [isOpen, setIsOpen] = useState(false)
     useEffect(() => {
         if (isOpen) {

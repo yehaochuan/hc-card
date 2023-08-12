@@ -5,3 +5,22 @@
     transform-style: preserve-3d;
     perspective-origin: center center;
 }
+
+section:first-child {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #0b090e;
+    color: #cccac9;
+    overflow: hidden;
+    transform-origin: center bottom;
+}
+section:last-child {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #5c4949;
+    transform-origin: center top;
+    background-color: #0d0d0d;
+    overflow: hidden;
+}
