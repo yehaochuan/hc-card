@@ -1,0 +1,28 @@
+.base-input-box {
+    min-height: 28px;
+    border: 2px solid #d9d9d9;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 10px;
+    box-shadow: inset 0px 0px 5px 0.5px aqua;
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+
+.base-input-box:focus-within {
+    border: 2px solid orange;
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.5);
+}
+
+.base-input-box>input {
+    flex: 1;
+    min-height: 28px;
+    background-color: transparent;
+    color: #dfe1e3;
+}
+
+.base-input-body::placeholder {
+    color: #9a9b9d;
+}

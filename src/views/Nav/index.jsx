@@ -1,30 +1,70 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './index.css'
 import BaseTitle from '../../components/baseTitle'
 import RightNav from '../../components/rightNav'
 import UserHeader from '../../components/userHeader'
-export default function index() {
+import AddLocalDialog from './AddLocalDialog'
 
-    function getLocal() {
+export default function Index() {
+    const [nList, setList] = useState([]);
+    useEffect(() => {
+        setList(navList)
+    }, [])
 
+    function changeNavList() {
+        isLocal = !isLocal;
+        if (isLocal) {
+            let list = localStorage.getItem('navList') || '[]';
+            list = JSON.parse(list)
+            setList(list)
+        } else {
+            setList(navList)
+        }
     }
+
+    const [isVisiblte, setVisiblte] = useState(false)
+    function openDialog() {
+        setVisiblte(!isVisiblte)
+    }
+    function closeDialog() {
+        setVisiblte(false)
+    }
+    function addNav(item) {
+        let list = localStorage.getItem('navList') || '[]';
+        list = JSON.parse(list)
+        const nowList = formatNavData(item, list)
+        localStorage.setItem('navList', JSON.stringify(nowList))
+        setList(nowList)
+        closeDialog()
+    }
+
     return (
-       
         <div className='nav-box'>
             <div className='content-box'>
-                <NavContent />
+                <NavContent navList={nList} />
+                {isLocal && <AddLocalBtn openDialog={openDialog} />}
 
-
+                {/* 左边栏 */}
                 <div className='right-nav-box'>
                     <RightNav list={navList.map(res => ({ name: res.title }))} />
                     <UserHeader />
                 </div>
-                <NavLocalIcon onClick={getLocal} />
+
+
+                <NavLocalIcon changeNavList={changeNavList} />
+                <AddLocalDialog
+                    isVisiblte={isVisiblte}
+                    title={"添加本地导航"}
+                    closeDialog={closeDialog}
+                    addNav={addNav}
+                />
             </div>
         </div>
     )
 }
-function NavContent() {
+
+// 导航列表内容
+function NavContent({ navList }) {
     return (<>
         {navList.map(item => {
             return (
@@ -36,6 +76,7 @@ function NavContent() {
         })}
     </>)
 }
+// 导航每组
 function NavTagGroup({ list }) {
     return (
         <div className='nav-tag-box'>
@@ -51,16 +92,55 @@ function NavTagGroup({ list }) {
         </div>
     )
 }
-function NavLocalIcon() {
+// 切换本地按钮
+function NavLocalIcon({ changeNavList }) {
     const path = 'M448 832v64l-128.32-128L448 640v64h192a192 192 0 0 0 115.84-345.152l0.704-0.896 90.24-90.24A320 320 0 0 1 640 832l-192.064 0.064zM576 192V128l131.008 128L576 384V320H384a192 192 0 0 0-115.712 345.216l-91.072 91.008A320 320 0 0 1 384 192h192.064z'
     return (
-        <div className='nav-local-box'>
+        <div className='nav-local-box' onClick={changeNavList}>
             <svg viewBox="0 0 1024 1024">
                 <path d={path} fill="aqua"></path>
             </svg>
         </div>
     )
 }
+
+function AddLocalBtn({ openDialog }) {
+    return (
+        <div className='add-local-btn' onClick={openDialog}>
+            +
+        </div>
+    )
+}
+
+function formatNavData(addItem, saveList) {
+    let isRepect = false
+    let hasTilte = false
+    let Index = null
+    saveList.forEach((item, index) => {
+        if (item.title === addItem.title) {
+            hasTilte = true
+            Index = index
+            item.list.forEach((child, index2) => {
+                if (addItem.name === child.name) {
+                    isRepect = true
+                }
+            })
+        }
+    })
+    if (hasTilte) {
+        if (!isRepect) {
+            saveList[Index].list.push({ name: addItem.name, url: addItem.url })
+        }
+    } else {
+        saveList.push({
+            title: addItem.title,
+            list: [{ name: addItem.name, url: addItem.url }]
+        })
+    }
+    return saveList
+}
+
+let isLocal = false;
 const navList = [
     {
         title: '仓库、部署',

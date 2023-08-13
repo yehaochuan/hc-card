@@ -5,12 +5,13 @@
     background-color: #0b090e;
     overflow: auto;
 }
+
 .nav-tag-box {
     width: calc(100% - 40px);
     margin: 10px 20px 0px 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;  
+    justify-content: left;
 }
 
 .content-box {
@@ -27,9 +28,11 @@
     cursor: pointer;
     font-size: 12px;
 }
+
 .nav-tag-item:hover {
     box-shadow: inset 0px 0px 10px 1px #56dcd8;
 }
+
 .nav-local-box {
     width: 40px;
     height: 30px;
@@ -47,7 +50,85 @@
     box-shadow: inset 3px 0px 3px 0.2px aqua;
     cursor: pointer;
 }
+
 .nav-local-box svg {
     height: 20px;
     width: 20px;
+}
+
+.add-local-btn {
+    width: 30px;
+    height: 32px;
+    line-height: 28px;
+    border-radius: 5px;
+    border: 2px solid aqua;
+    box-sizing: border-box;
+    text-align: center;
+    display: inline-block;
+    color: aqua;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 20px 0px 0px 20px;
+}
+
+
+.add-local-dialog {
+    width: 30rem;
+    height: 260px;
+    background-color: rgb(94, 92, 92);
+    border-radius: 1rem;
+    position: fixed;
+    top: 15rem;
+    left: calc(50% - 15rem);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: 2px solid orange;
+    box-shadow: 2px 2px 10px 4px black;
+}
+
+.add-local-dialog>header {
+    height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #56dcd8;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid orange;
+    padding-bottom: 10px;
+}
+
+.add-local-dialog>header>span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 16px;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+}
+
+.add-local-dialog-input {
+    width: 25rem;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+.add-local-dialog-input>div {
+    width: 100%;
+}
+.add-local-dialog-btn {
+    display: flex;
+    justify-content: space-between;
+    width: 25rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+.add-local-dialog-btn>button {
+    width: 9rem !important;
 }

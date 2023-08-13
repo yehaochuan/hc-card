@@ -68,7 +68,7 @@
     }
 
     .content-box {
-        margin-left: calc(50% - 25rem);
+        margin-left: calc(50% - 25rem) !important;
     }
 }
 

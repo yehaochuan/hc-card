@@ -1,0 +1,14 @@
+.base-btn {
+    min-height: 30px;
+    background-color: transparent;
+    border: 2px solid #d9d9d9;
+    border-radius: 4px;
+    min-width: 4rem;
+    color: #d9d9d9;
+    cursor: pointer;
+}
+
+.base-btn:hover {
+    border: 2px solid orange; 
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.5);
+}

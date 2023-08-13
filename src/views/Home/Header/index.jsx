@@ -87,7 +87,9 @@ const menuConfig = {
     list: [
         { name: '首页', path: '/Home' },
         { name: '博客', url: 'https://haochuan.blog.csdn.net' },
-        { name: '导航', path: '/Home/Nav' }
+        { name: '导航', path: '/Home/Nav' },
+        { name: '经历', path: '/Home' },
+        { name: '开源项目', path: '/Home' },
     ],
     open({ path, url }, navigate, setIsOpen) {
         path && navigate(path);

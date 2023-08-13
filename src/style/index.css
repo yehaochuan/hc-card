@@ -8,8 +8,14 @@ body,
   height: 100%;
   margin: 0;
 }
+
 a {
   text-decoration: none !important;
+}
+
+input {
+  outline: none;
+  border: 0;
 }
 
 
