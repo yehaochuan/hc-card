@@ -37,11 +37,21 @@ export default function Index() {
         setList(nowList)
         closeDialog()
     }
-
+    function deleteItem(pre, next) {
+        let list = localStorage.getItem('navList') || '[]';
+        list = JSON.parse(list)
+        if (list[pre].list.length === 1) {
+            list.splice(pre, 1)
+        }else{
+            list[pre].list.splice(next,1)
+        }
+        localStorage.setItem('navList', JSON.stringify(list))
+        setList(list)
+    }
     return (
         <div className='nav-box'>
             <div className='content-box'>
-                <NavContent navList={nList} />
+                <NavContent navList={nList} isLocal={isLocal} deleteItem={deleteItem} />
                 {isLocal && <AddLocalBtn openDialog={openDialog} />}
 
                 {/* 左边栏 */}
@@ -49,7 +59,6 @@ export default function Index() {
                     <RightNav list={navList.map(res => ({ name: res.title }))} />
                     <UserHeader />
                 </div>
-
 
                 <NavLocalIcon changeNavList={changeNavList} />
                 <AddLocalDialog
@@ -64,28 +73,35 @@ export default function Index() {
 }
 
 // 导航列表内容
-function NavContent({ navList }) {
+function NavContent({ navList, isLocal, deleteItem }) {
     return (<>
-        {navList.map(item => {
+        {navList.map((item, index) => {
             return (
                 <div key={item.title} name={item.title} id={item.title}>
                     <BaseTitle name={item.title} />
-                    <NavTagGroup list={item.list}></NavTagGroup>
+                    <NavTagGroup list={item.list} isLocal={isLocal} deleteItem={(index_2) => deleteItem(index, index_2)}></NavTagGroup>
                 </div>
             )
         })}
     </>)
 }
 // 导航每组
-function NavTagGroup({ list }) {
+function NavTagGroup({ list, isLocal, deleteItem }) {
     return (
         <div className='nav-tag-box'>
-            {list.map(item => {
+            {list.map((item, index) => {
                 return (
-                    <div className='nav-tag-item' key={item.name} onClick={() => {
-                        window.open(item.url)
-                    }}>
-                        {item.name}
+                    <div
+                        className='nav-tag-item'
+                        key={item.name}
+                        style={{
+                            marginRight: isLocal ? '40px' : '20px',
+                            borderTopRightRadius: isLocal ? '0px' : '4px',
+                            borderBottomRightRadius: isLocal ? '0px' : '4px'
+                        }}
+                    >
+                        <div onClick={() => { window.open(item.url) }}>{item.name}</div>
+                        {isLocal && <div className='nav-tag-item-delete-btn' onClick={() => deleteItem(index)}>x</div>}
                     </div>
                 )
             })}

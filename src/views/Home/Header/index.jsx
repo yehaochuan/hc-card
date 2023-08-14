@@ -85,11 +85,11 @@ function PhoneMenu({ list, navigate }) {
 
 const menuConfig = {
     list: [
-        { name: '首页', path: '/Home' },
+        { name: '首页', path: '/' },
         { name: '博客', url: 'https://haochuan.blog.csdn.net' },
-        { name: '导航', path: '/Home/Nav' },
-        { name: '经历', path: '/Home' },
-        { name: '开源项目', path: '/Home' },
+        { name: '导航', path: '/Nav' },
+        { name: '经历', path: '/' },
+        { name: '开源项目', path: '/' },
     ],
     open({ path, url }, navigate, setIsOpen) {
         path && navigate(path);

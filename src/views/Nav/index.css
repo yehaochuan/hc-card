@@ -20,17 +20,34 @@
 }
 
 .nav-tag-item {
-    padding: 4px 10px;
     border-radius: 4px;
     border: 2px solid #4e8796;
     margin: 0px 20px 10px 0px;
     color: #56dcd8;
     cursor: pointer;
     font-size: 12px;
+    position: relative;
 }
 
-.nav-tag-item:hover {
+.nav-tag-item>div {
+    padding: 4px 10px;
+}
+
+.nav-tag-item>div:hover {
     box-shadow: inset 0px 0px 10px 1px #56dcd8;
+}
+
+.nav-tag-item-delete-btn {
+    position: absolute;
+    top: -2px;
+    right: -34px;
+    width: 10px;
+    border: 2px solid #4e8796;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav-local-box {
@@ -75,6 +92,7 @@
 
 .add-local-dialog {
     width: 30rem;
+    max-width: 500px;
     height: 260px;
     background-color: rgb(94, 92, 92);
     border-radius: 1rem;
@@ -110,7 +128,7 @@
 }
 
 .add-local-dialog-input {
-    width: 25rem;
+    width: calc(100% - 20px);
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -121,14 +139,17 @@
 .add-local-dialog-input>div {
     width: 100%;
 }
+
 .add-local-dialog-btn {
     display: flex;
     justify-content: space-between;
-    width: 25rem;
+    width: calc(100% - 20px);
     margin: 0 auto;
     padding: 0 2rem;
     box-sizing: border-box;
 }
+
 .add-local-dialog-btn>button {
     width: 9rem !important;
+    max-width: 160px;
 }

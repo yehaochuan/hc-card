@@ -6,19 +6,15 @@ export default function Element() {
     return useRoutes([
         {
             path: '/',
-            element: <Navigate to='/Home' />
-        },
-        {
-            path: '/',
             element: Home(),
             children: [
                 {
-                    path: '/Home',
+                    path: '/',
                     element: LazyLoad('/Home/Main'),
                     key: 'Home'
                 },
                 {
-                    path: '/Home/Nav',
+                    path: '/Nav',
                     element: LazyLoad('/Nav'),
                     key: 'Nav'
                 },
