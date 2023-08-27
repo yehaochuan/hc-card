@@ -86,7 +86,7 @@ function PhoneMenu({ list, navigate }) {
 const menuConfig = {
     list: [
         { name: '首页', path: '/' },
-        { name: '博客', url: 'https://haochuan.blog.csdn.net' },
+        { name: '博客', path: '/CardNav' },
         { name: '导航', path: '/Nav' },
         { name: '经历', path: '/' },
         { name: '开源项目', path: '/' },

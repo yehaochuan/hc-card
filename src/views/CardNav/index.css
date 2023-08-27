@@ -1,0 +1,30 @@
+
+.b-card-body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.b-card-item {
+    width: 12rem;
+    max-width: 200px;
+    height: 100px;
+    border-radius: 4px;
+    border: 2px solid silver;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.b-card-item:not(:last-of-type){
+    margin-right: 20px;
+}
+.b-card-item:hover {
+    box-shadow: inset 0px 0px 10px 1px aqua;
+    cursor: pointer;
+}
+.b-card-item>p{
+    color: #d7ba7d;
+    width: 100%;
+}
+.b-card-item>div{
+    width: 100%;
+}

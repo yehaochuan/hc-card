@@ -4,6 +4,7 @@
     box-sizing: border-box;
     transform-style: preserve-3d;
     perspective-origin: center center;
+    background-color: #ffd260;
 }
 
 section:first-child {

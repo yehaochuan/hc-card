@@ -1,7 +1,8 @@
-import { useRoutes, Navigate } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
 import Loading from '../views/Loading'
 import React from 'react';
 import Home from '../views/Home'
+
 export default function Element() {
     return useRoutes([
         {
@@ -17,6 +18,16 @@ export default function Element() {
                     path: '/Nav',
                     element: LazyLoad('/Nav'),
                     key: 'Nav'
+                },
+                {
+                    path: '/CardNav',
+                    element: LazyLoad('/CardNav'),
+                    key: 'CardNav'
+                },
+                {
+                    path: '/notArticle',
+                    element: LazyLoad('/notFound/notArticle'),
+                    key: 'notArticle'
                 },
                 {
                     path: '*',

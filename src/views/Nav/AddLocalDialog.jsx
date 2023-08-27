@@ -4,7 +4,7 @@ import BaseInput from '../../components/baseInput'
 import BaseBtn from '../../components/baseBtn'
 
 
-export default function AddLocalDialog({ isVisiblte, title, closeDialog, addNav }) {
+export default function AddLocalDialog({ isVisiblte, title, closeDialog, addNav, setList }) {
     const navConifg = {
         title: '',
         name: '',
@@ -23,7 +23,7 @@ export default function AddLocalDialog({ isVisiblte, title, closeDialog, addNav 
                         <BaseInput placeholder={'请输入'} onChange={(e) => { navConifg.url = e }}>URL:</BaseInput>
                     </div>
                     <div className='add-local-dialog-btn'>
-                        <BaseBtn onClick={() => addNav(navConifg)}>确认</BaseBtn>
+                        <BaseBtn onClick={() => { addNav(navConifg, setList); closeDialog() }}>确认</BaseBtn>
                         <BaseBtn onClick={closeDialog}>取消</BaseBtn>
                     </div>
                 </div>
