@@ -82,6 +82,7 @@ function StarComp() {
   </>)
 }
 // 星星动画 config
+const hasStar = [];
 const starObj = {
   path: 'M784.16441 645.6c-3.8 3.7-5.5 9-4.6 14.2L835.36441 985c1.8 10.3-6.4 18.7-15.8 18.7-2.5 0-5-0.6-7.5-1.9L520.16441 848.3c-2.3-1.2-4.9-1.8-7.5-1.8s-5.1 0.6-7.5 1.8l-292.1 153.5c-2.5 1.3-5 1.9-7.5 1.9-9.3 0-17.5-8.4-15.8-18.7L245.66441 659.8c0.9-5.2-0.8-10.5-4.6-14.2L4.86441 415.3C-4.63559 406 0.56441 389.9 13.66441 388l326.5-47.5c5.2-0.8 9.7-4 12-8.8l146-295.9c2.9-5.9 8.6-8.9 14.3-8.9s11.4 3 14.3 8.9l146 295.9c2.3 4.7 6.8 8 12 8.8L1011.66441 388c13.1 1.9 18.4 18 8.9 27.3L784.16441 645.6z',
   interVal: '',
@@ -93,9 +94,13 @@ const starObj = {
         const y = Math.floor(10 * Math.random())
 
 
-        if ((x >= 8 || x <= 2) && (y >= 8 || y <= 2)) {
+        if ((x >= 7 || x <= 3) && (y >= 7 || y <= 3)) {
           const className = '.star-item' + x + y;
-          this.Anime(className);
+          if (!hasStar.includes(className)) {
+            hasStar.push(className)
+            this.Anime(className);
+            setTimeout(() => { hasStar.splice(hasStar.includes(className), 1) }, 15000)
+          }
         }
 
       }
@@ -107,23 +112,21 @@ const starObj = {
       keyframes: [
         {
           opacity: '1',
-          translateZ: '-1000px',
-        },
-        {
-          opacity: '0.5',
-          translateZ: '-2000px',
+          translateZ: '0px',
+          duration: 100
         },
         {
           opacity: '0',
           translateZ: '-4000px',
+          duration: 10000
         },
         {
           opacity: '0',
-          translateZ: '0',
+          translateZ: '0px',
+          duration: 100
         },
       ],
-      easing: 'linear',
-      duration: 15000
+      easing: 'easeInOutQuad'
     });
   }
 }
