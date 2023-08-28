@@ -1,5 +1,4 @@
 import React from 'react'
-import anime from 'animejs'
 import Welcome, { rotateObj } from '../Welcome/welcome'
 
 

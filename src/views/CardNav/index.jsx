@@ -11,8 +11,9 @@ export default function Index() {
     const [list, setList] = useState([])
     useEffect(() => {
         setList(navObj[name].list)
-    })
-    console.log(loc);
+    },[name])
+
+     
     return (
         <BaseCard>
             <BaseTitle name={navObj[name].name}></BaseTitle>
@@ -63,7 +64,7 @@ const navObj = {
                 title: 'YHC-UI',
                 label: '基于VUE3',
                 val: '个人UI框架',
-                url:'https://haochuan-ui.netlify.app/'
+                url: 'https://haochuan-ui.netlify.app/'
             },
         ]
     }
