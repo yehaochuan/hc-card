@@ -1,23 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './index.css'
 import BaseCard from '../../components/baseCard'
 import BaseTitle from '../../components/baseTitle'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 export default function Index() {
     const navigate = useNavigate()
+    const loc = useLocation()
+    const name = loc.pathname.split('/')[1]
+    const [list, setList] = useState([])
+    useEffect(() => {
+        setList(navObj[name].list)
+    })
+    console.log(loc);
     return (
-        <BaseCard navList={[{ title: '博客' }]}>
-            <BaseTitle name={'博客'}></BaseTitle>
+        <BaseCard>
+            <BaseTitle name={navObj[name].name}></BaseTitle>
             <div className='b-card-body'>
                 {
-                    cardList.map(item => {
+                    list.map(item => {
 
                         return (
                             <div className='b-card-item' key={item.title} onClick={() => open(item, navigate)}>
                                 <p>{item.title}</p>
-                                <div>文章数</div>
-                                <div>{item.num}</div>
+                                <div>{item.label}</div>
+                                <div>{item.val}</div>
                             </div>
                         )
                     })
@@ -31,7 +38,36 @@ function open({ path, url }, navigate) {
     path && navigate(path);
     url && window.open(url);
 }
-const cardList = [
-    { title: 'CSDN', num: '52', url: 'https://haochuan.blog.csdn.net' },
-    { title: '个人网站', num: '0', path: '/notArticle' }
-]
+const navObj = {
+    Experience: {
+        name: '博客',
+        list: [
+            {
+                title: 'CSDN',
+                label: '文章数',
+                val: '52',
+                url: 'https://haochuan.blog.csdn.net'
+            },
+            {
+                title: '个人网站',
+                label: '文章数',
+                val: '0',
+                path: '/notArticle'
+            }
+        ]
+    },
+    OpenSoure: {
+        name: '开源项目',
+        list: [
+            {
+                title: 'YHC-UI',
+                label: '基于VUE3',
+                val: '个人UI框架',
+                url:'https://haochuan-ui.netlify.app/'
+            },
+        ]
+    }
+}
+
+
+

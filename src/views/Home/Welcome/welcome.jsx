@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import anime from 'animejs'
 import './welcome.css'
-import { rotateObj } from '../Main'
 
 export default function Welcome() {
   useEffect(() => {
@@ -16,7 +15,7 @@ export default function Welcome() {
     <>
       <WelcomeComp></WelcomeComp>
       <StarComp></StarComp>
-      <div className='bottom-arrow' onClick={rotateObj.bottom} >
+      <div className='bottom-arrow' onClick={() => { rotateObj.bottom(); clearInterval(starObj.interVal) }} >
         <svg viewBox="0 0 1031 1024"  >
           <path d={arrowPath} fill="aqua">
           </path>
@@ -94,7 +93,7 @@ const starObj = {
         const y = Math.floor(10 * Math.random())
 
 
-        if ((x >= 7 || x <= 3) && (y >= 7 || y <= 3)) {
+        if (x > 7 || x < 3 || y >= 7 || y <= 3) {
           const className = '.star-item' + x + y;
           if (!hasStar.includes(className)) {
             hasStar.push(className)
@@ -141,4 +140,40 @@ function arrowAnime() {
     loop: true,
     easing: 'easeInOutSine'
   });
+}
+
+export const rotateObj = {
+  top() {
+      anime({
+          targets: 'section:first-child',
+          translateY: '0',
+          rotateX: '0',
+          easing:  'spring(1, 50, 10, 0)',
+          duration: 1000
+      });
+      anime({
+          targets: 'section:last-child',
+          translateY: '0',
+          rotateX: '-90deg',
+          easing:  'spring(1, 50, 10, 0)',
+          duration: 1000
+      });
+      starObj.start()
+  },
+  bottom() {
+      anime({
+          targets: 'section:first-child',
+          translateY: '-100%',
+          rotateX: '90deg',
+          easing:  'spring(1, 50, 10, 0)',
+          duration: 1000
+      });
+      anime({
+          targets: 'section:last-child',
+          translateY: '-100%',
+          rotateX: '0deg',
+          easing:  'spring(1, 50, 10, 0)',
+          duration: 1000
+      });
+  }
 }

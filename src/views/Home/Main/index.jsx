@@ -1,6 +1,6 @@
 import React from 'react'
 import anime from 'animejs'
-import Welcome from '../Welcome/welcome'
+import Welcome, { rotateObj } from '../Welcome/welcome'
 
 
 export default function Section() {
@@ -16,40 +16,7 @@ export default function Section() {
     )
 }
 
-export const rotateObj = {
-    top() {
-        anime({
-            targets: 'section:first-child',
-            translateY: '0',
-            rotateX: '0',
-            easing:  'spring(1, 50, 10, 0)',
-            duration: 1000
-        });
-        anime({
-            targets: 'section:last-child',
-            translateY: '0',
-            rotateX: '-90deg',
-            easing:  'spring(1, 50, 10, 0)',
-            duration: 1000
-        });
-    },
-    bottom() {
-        anime({
-            targets: 'section:first-child',
-            translateY: '-100%',
-            rotateX: '90deg',
-            easing:  'spring(1, 50, 10, 0)',
-            duration: 1000
-        });
-        anime({
-            targets: 'section:last-child',
-            translateY: '-100%',
-            rotateX: '0deg',
-            easing:  'spring(1, 50, 10, 0)',
-            duration: 1000
-        });
-    }
-}
+
 // function setScrollFun() {
 //     window.onmousewheel = scrollFunc;
 //     document.onmousewheel = scrollFunc;

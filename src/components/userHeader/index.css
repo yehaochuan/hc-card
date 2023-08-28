@@ -45,8 +45,8 @@
 }
 
 .my-info-box {
-    width: 12rem;
-    margin: 1rem auto;
+    width: 160px;
+    margin: 20px auto;
     padding: 10px;
     background-color: #212121;
     box-shadow: inset 0px 0px 8px 0.5px aqua;

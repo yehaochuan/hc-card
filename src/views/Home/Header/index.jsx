@@ -86,10 +86,10 @@ function PhoneMenu({ list, navigate }) {
 const menuConfig = {
     list: [
         { name: '首页', path: '/' },
-        { name: '博客', path: '/CardNav' },
+        { name: '博客', path: '/Experience' },
         { name: '导航', path: '/Nav' },
         { name: '经历', path: '/' },
-        { name: '开源项目', path: '/' },
+        { name: '开源项目', path: '/OpenSoure' },
     ],
     open({ path, url }, navigate, setIsOpen) {
         path && navigate(path);

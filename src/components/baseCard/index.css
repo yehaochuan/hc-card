@@ -14,18 +14,19 @@
     border-radius: 4px;
     background-color: #242429;
     min-height: calc(100% - 8px);
-    margin-left: calc(50% - 33rem);
+    margin-left: calc(50% - 25rem - 100px);
     box-sizing: border-box;
     margin-top: 8px;
     color: #D3D3D3;
 }
 
 .right-nav-box {
-    width: 15rem;
+    width: 200px;
     box-sizing: border-box;
-    position: absolute;
-    top: 0;
-    left: calc(100% + 10px);
+    position: fixed;
+    top: 8px;
+
+    left: calc(50% + 25rem - 88px);
     overflow: hidden;
     padding-bottom: 10px;
 }

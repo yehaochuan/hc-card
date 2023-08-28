@@ -9,7 +9,7 @@ export default function index({ navList = [], children }) {
                 {children}
                 {/* 左边栏 */}
                 <div className='right-nav-box'>
-                    <RightNav list={navList.map(res => ({ name: res.title }))} />
+                    {navList.length > 0 && <RightNav list={navList.map(res => ({ name: res.title }))} />}
                     <UserHeader />
                 </div>
             </div>

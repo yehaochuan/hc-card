@@ -20,7 +20,12 @@ export default function Element() {
                     key: 'Nav'
                 },
                 {
-                    path: '/CardNav',
+                    path: '/Experience',
+                    element: LazyLoad('/CardNav'),
+                    key: 'CardNav'
+                },
+                {
+                    path: '/OpenSoure',
                     element: LazyLoad('/CardNav'),
                     key: 'CardNav'
                 },
