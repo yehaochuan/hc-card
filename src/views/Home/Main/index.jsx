@@ -1,6 +1,6 @@
 import React from 'react'
-import Welcome, { rotateObj } from '../Welcome/welcome'
-
+import Welcome from '../Welcome/welcome'
+import Experience from '../../Experience'
 
 export default function Section() {
     return (
@@ -9,7 +9,7 @@ export default function Section() {
                 <Welcome />
             </section>
             <section style={{ transform: 'translateY(0) rotateX(-90deg)' }} key={'bottom'}>
-                <button onClick={rotateObj.top}> top </button>
+                 <Experience />
             </section>
         </div >
     )

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import anime from 'animejs'
 import { useNavigate, useLocation } from 'react-router-dom'
-
 import { rotateObj } from '../Welcome/welcome'
 import './index.css'
 
