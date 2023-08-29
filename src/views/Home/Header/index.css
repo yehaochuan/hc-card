@@ -18,7 +18,7 @@ img {
 
 .menu_pc_box {
     width: auto;
-    display: inline-block;
+    display: flex;
     box-sizing: border-box;
     height: 48px;
     font-size: 14px;
@@ -33,7 +33,6 @@ img {
     box-sizing: border-box;
     /* 设置3d效果 */
     transform-style: preserve-3d;
-    float: left;
     perspective-origin: center center;
     transform-origin: center 48px;
     transition: all 0.3s;

@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 import anime from 'animejs'
 import './welcome.css'
+import { useLocation } from 'react-router-dom'
 
 export default function Welcome() {
+  const loc = useLocation()
   useEffect(() => {
     arrowAnime() // 箭头
     welcomeObj.Anime()  // 启动welcome动画
@@ -11,6 +13,16 @@ export default function Welcome() {
       clearInterval(starObj.interVal)  // 清除star动画
     }
   }, [])
+
+  useEffect(() => {
+    if (loc.state === 'bottom') {
+      rotateObj.bottom()
+    }
+  }, [loc.state])
+
+
+
+
   return (
     <>
       <WelcomeComp></WelcomeComp>
@@ -144,36 +156,36 @@ function arrowAnime() {
 
 export const rotateObj = {
   top() {
-      anime({
-          targets: 'section:first-child',
-          translateY: '0',
-          rotateX: '0',
-          easing:  'spring(1, 50, 10, 0)',
-          duration: 1000
-      });
-      anime({
-          targets: 'section:last-child',
-          translateY: '0',
-          rotateX: '-90deg',
-          easing:  'spring(1, 50, 10, 0)',
-          duration: 1000
-      });
-      starObj.start()
+    anime({
+      targets: 'section:first-child',
+      translateY: '0',
+      rotateX: '0',
+      easing: 'spring(1, 50, 10, 0)',
+      duration: 1000
+    });
+    anime({
+      targets: 'section:last-child',
+      translateY: '0',
+      rotateX: '-90deg',
+      easing: 'spring(1, 50, 10, 0)',
+      duration: 1000
+    });
+    starObj.start()
   },
   bottom() {
-      anime({
-          targets: 'section:first-child',
-          translateY: '-100%',
-          rotateX: '90deg',
-          easing:  'spring(1, 50, 10, 0)',
-          duration: 1000
-      });
-      anime({
-          targets: 'section:last-child',
-          translateY: '-100%',
-          rotateX: '0deg',
-          easing:  'spring(1, 50, 10, 0)',
-          duration: 1000
-      });
+    anime({
+      targets: 'section:first-child',
+      translateY: '-100%',
+      rotateX: '90deg',
+      easing: 'spring(1, 50, 10, 0)',
+      duration: 1000
+    });
+    anime({
+      targets: 'section:last-child',
+      translateY: '-100%',
+      rotateX: '0deg',
+      easing: 'spring(1, 50, 10, 0)',
+      duration: 1000
+    });
   }
 }

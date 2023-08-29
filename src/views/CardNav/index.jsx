@@ -64,7 +64,7 @@ const navObj = {
                 title: 'YHC-UI',
                 label: '基于VUE3',
                 val: '个人UI框架',
-                url: 'https://haochuan-ui.netlify.app/'
+                url: 'https://yhc-ui.netlify.app/'
             },
         ]
     }

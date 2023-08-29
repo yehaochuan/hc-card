@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import anime from 'animejs'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
+
+import { rotateObj } from '../Welcome/welcome'
 import './index.css'
+
 
 export default function Header() {
     const navigate = useNavigate()
+    const loc = useLocation()
+
     return (
         <header>
             <img src="../../../logo.png" alt="logo" />
-            <PcMenu list={menuConfig.list} navigate={navigate} />
-            <PhoneMenu list={menuConfig.list} navigate={navigate} />
+            <PcMenu list={menuConfig.list} navigate={navigate} pathName={loc.pathname} />
+            <PhoneMenu list={menuConfig.list} navigate={navigate} pathName={loc.pathname} />
         </header>
     )
 }
-function PcMenu({ list, navigate }) {
-
+function PcMenu({ list, navigate, pathName }) {
     return (
         <div className="menu_pc_box">
             {list.map(item => {
@@ -22,7 +26,7 @@ function PcMenu({ list, navigate }) {
                     <div
                         className="menu_pc_item"
                         key={item.name}
-                        onClick={() => { menuConfig.open(item, navigate); }}
+                        onClick={() => { menuConfig.open(item, { navigate, pathName }); }}
                     >
                         <span className="menu_pc_text">{item.name}</span>
                         <div className="menu_pc_rotate" >
@@ -34,8 +38,7 @@ function PcMenu({ list, navigate }) {
         </div>
     )
 }
-
-function PhoneMenu({ list, navigate }) {
+function PhoneMenu({ list, navigate, pathName }) {
     let [isOpen, setIsOpen] = useState(false)
     useEffect(() => {
         if (isOpen) {
@@ -68,7 +71,7 @@ function PhoneMenu({ list, navigate }) {
                                 <div
                                     className="menu_phone_item"
                                     key={item.name}
-                                    onClick={() => menuConfig.open(item, navigate, setIsOpen)}
+                                    onClick={() => menuConfig.open(item, { navigate, setIsOpen, pathName })}
                                 >
                                     <span className="menu_pc_text">{item.name}</span>
                                 </div>
@@ -81,20 +84,26 @@ function PhoneMenu({ list, navigate }) {
     )
 
 }
-
-
 const menuConfig = {
     list: [
         { name: '首页', path: '/' },
-        { name: '博客', path: '/Experience' },
-        { name: '导航', path: '/Nav' },
         { name: '经历', path: '/' },
-        { name: '开源项目', path: '/OpenSoure' },
+        { name: '导航', path: '/Nav' },
+        { name: '博客', path: '/Experience' },
+        { name: '开源', path: '/OpenSoure' },
     ],
-    open({ path, url }, navigate, setIsOpen) {
-        path && navigate(path);
-        url && window.open(url);
-        setIsOpen && setIsOpen(false)
+    open({ path, url, name }, { navigate, setIsOpen, pathName }) {
+        if (name === '经历' && pathName === '/') rotateObj.bottom();
+        if (name === '首页' && pathName === '/') rotateObj.top();
+
+        if (name === '经历' && pathName !== '/') navigate(path, { state: 'bottom' });
+        if (name === '首页' && pathName !== '/') navigate(path, { state: 'top' });
+
+        if (!['经历', '首页'].includes(name)) {
+            path && navigate(path);
+            url && window.open(url);
+            setIsOpen && setIsOpen(false)
+        }
     },
     openPhoneMenu() {
         anime({
