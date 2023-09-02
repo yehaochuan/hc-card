@@ -9,6 +9,22 @@ export default function Welcome() {
     arrowAnime() // 箭头
     welcomeObj.Anime()  // 启动welcome动画
     starObj.start() // 启动star动画
+
+
+
+    let hiddenProperty = 'hidden' in document ? 'hidden' : 'webkitHidden' in document ? 'webkitHidden' : 'mozHidden' in document ? 'mozHidden' : null;
+    let visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+    let onVisibilityChange = function () {
+      if (!document[hiddenProperty]) {
+        starObj.start() // 启动star动画
+      } else {
+        clearInterval(starObj.interVal)  // 清除star动画
+      }
+    };
+    document.addEventListener(visibilityChangeEvent, onVisibilityChange);
+
+
+
     return () => {
       clearInterval(starObj.interVal)  // 清除star动画
     }

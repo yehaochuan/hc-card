@@ -10,11 +10,13 @@ export default function Index() {
         <div className='experience-box'>
             <div className='experience-left-box'>
                 {experienceList.map((res, index) => {
-                    return (<>
+                    return (<div key={res.name}>
                         <div className={
                             'experience-nav-item' +
-                            (activeName === res.name ? ' experience-nav-item-active' : '')
+                            (activeName === res.name ? ' experience-nav-item-active' : ' 1')
+
                         }
+
                             onClick={() => navClick(res.name)}
                         >
                             <div className='experience-nav-name'>
@@ -27,8 +29,8 @@ export default function Index() {
                                 {res.content}
                             </div>
                         </div>
-                        <div className={index < experienceList.length - 1 && 'experience-nav-line'}></div>
-                    </>
+                        <div className={index < experienceList.length - 1 ? 'experience-nav-line' : ''}></div>
+                    </div>
                     )
                 })}
 
@@ -36,10 +38,10 @@ export default function Index() {
             <div className='experience-right-box'>
 
                 {experienceList.filter(res => res.name === activeName)[0].details.map(res => {
-                    return (<>
+                    return (<div key={res.name}>
                         <BaseTitle name={res.name}></BaseTitle>
                         <pre>{res.content}</pre>
-                    </>)
+                    </div>)
                 })}
             </div>
         </div >
@@ -101,7 +103,7 @@ const experienceList = [
         long: '4年',
         content: '本科 软件工程',
         details: [
-            { 
+            {
                 name: '武昌工学院    本科     软件工程     人工智能学院      2017.6 - 2021.6',
                 content: '....'
             }

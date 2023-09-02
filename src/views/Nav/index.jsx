@@ -159,6 +159,7 @@ const navList = [
             { name: 'Github', url: 'https://github.com/' },
             { name: 'Gitee', url: 'https://gitee.com/' },
             { name: 'Netlify', url: 'https://app.netlify.com/' },
+            { name: 'Vercel', url: 'https://vercel.com/' },
         ]
     },
     {
@@ -173,10 +174,22 @@ const navList = [
         title: '常用库',
         list: [
             { name: 'Echarts 国内站点', url: 'https://www.isqqw.com/', },
-            { name: 'AnimeJs 动画库', url: 'https://animejs.com/', },
             { name: 'Antd of Vue', url: 'https://www.antdv.com/' },
             { name: 'Antd of React', url: 'https://3x.ant.design/docs/react/introduce-cn' },
-            { name: 'Element-plus', url: 'https://element-plus.org/' }
+            { name: 'Element-plus', url: 'https://element-plus.org/' },
+            { name: 'Hexo markdown', url: 'https://hexo.io/zh-cn/' },
+            { name: 'vitePress', url: 'http://www.fenovice.com/doc/vuepress-next/guide/' },
+        ]
+    },
+    {
+        title: 'anime、CSS技巧',
+        list: [
+            { name: 'AnimeJs 动画库', url: 'https://animejs.com/', },
+            { name: '0代码生成布局', url: 'https://www.lingdaima.com/' },
+            { name: 'Loading 动画', url: 'https://tobiasahlin.com/spinkit/', },
+            { name: 'Css 灵感创意', url: 'https://csscoco.com/inspiration/#/./init' },
+            { name: 'Css 渐变', url: 'https://color.oulu.me/' },
+            { name: 'Codemyui 动画实例', url: 'https://codemyui.com/' },
         ]
     },
     {
@@ -187,30 +200,35 @@ const navList = [
             { name: 'Vue3 中文文档', url: 'https://cn.vuejs.org/' },
             { name: 'React 中文文档', url: 'https://react.docschina.org/' },
             { name: 'Css Tricks', url: 'https://lhammer.cn/You-need-to-know-css/#/zh-cn/' },
+            { name: 'nodeJs 指南', url: 'https://blog.poetries.top/node-learning-notes/' },
         ]
     },
     {
         title: '工具类型',
         list: [
-            { name: '半径工具', url: 'https://9elements.github.io/fancy-border-radius/' },
-            { name: '加载动画', url: 'https://loading.io/' },
-            { name: '波浪', url: 'https://getwaves.io/' },
-            { name: '阴影生成', url: 'https://neumorphism.io/#e0e0e0' },
-            { name: '0代码', url: 'https://www.lingdaima.com/' },
-            { name: 'Codemyui 动画实例', url: 'https://codemyui.com/' },
+            { name: '在线工具', url: 'https://tool.lu/' },
+            { name: '短链接生成', url: 'https://reurl.cc/main/cn' },
+            { name: '代码转图片', url: 'https://carbon.now.sh/' },
         ]
     },
     {
         title: 'Icon',
         list: [
-            {
-                name: 'iconfont 阿里',
-                url: 'https://www.iconfont.cn/'
-            },
-            {
-                name: 'iconify',
-                url: 'https://icon-sets.iconify.design/'
-            },
+            { name: 'iconfont 阿里', url: 'https://www.iconfont.cn/' },
+            { name: 'iconify', url: 'https://icon-sets.iconify.design/' },
+        ]
+    },
+    {
+        title: '面试题',
+        list: [
+            { name: '前端面试', url: 'https://blog.poetries.top/FE-Interview-Questions/' },
+        ]
+    },
+    {
+        title: '开发工具下载',
+        list: [
+            { name: 'vsCode', url: 'https://code.visualstudio.com/' },
+            { name: 'WebStorm', url: 'https://www.jetbrains.com/webstorm/' },
         ]
     },
 ]
