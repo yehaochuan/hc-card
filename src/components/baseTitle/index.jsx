@@ -8,7 +8,7 @@ export default function index({ name, children }) {
         <div style={{ overflow: 'hidden' }} >
             <div className='title-body'>
                 {children}
-                <span className='title-name' >{name}</span>
+                <pre className='title-name' >{name}</pre>
             </div>
         </div>
 
