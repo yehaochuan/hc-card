@@ -88,8 +88,7 @@ const menuConfig = {
         { name: '首页', path: '/' },
         { name: '经历', path: '/' },
         { name: '导航', path: '/Nav' },
-        { name: '博客', path: '/Experience' },
-        { name: '开源', path: '/OpenSoure' },
+        { name: '博客与开源', path: '/OpenSoure' },
     ],
     open({ path, url, name }, { navigate, setIsOpen, pathName }) {
         if (name === '经历' && pathName === '/') rotateObj.bottom();

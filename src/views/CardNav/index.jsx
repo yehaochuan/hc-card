@@ -1,36 +1,32 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './index.css'
 import BaseCard from '../../components/baseCard'
 import BaseTitle from '../../components/baseTitle'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function Index() {
     const navigate = useNavigate()
-    const loc = useLocation()
-    const name = loc.pathname.split('/')[1]
-    const [list, setList] = useState([])
-    useEffect(() => {
-        setList(navObj[name].list)
-    },[name])
 
-     
     return (
         <BaseCard>
-            <BaseTitle name={navObj[name].name}></BaseTitle>
-            <div className='b-card-body'>
-                {
-                    list.map(item => {
-
-                        return (
-                            <div className='b-card-item' key={item.title} onClick={() => open(item, navigate)}>
-                                <p>{item.title}</p>
-                                <div>{item.label}</div>
-                                <div>{item.val}</div>
-                            </div>
-                        )
-                    })
-                }
-            </div>
+            {Object.values(navObj).map(obj => {
+                return <>
+                    <BaseTitle name={obj.name}></BaseTitle>
+                    <div className='b-card-body'>
+                        {
+                            obj.list.map(item => {
+                                return (
+                                    <div className='b-card-item' key={item.title} onClick={() => open(item, navigate)}>
+                                        <p>{item.title}</p>
+                                        <div>{item.label}</div>
+                                        <div>{item.val}</div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </>
+            })}
 
         </BaseCard>
     )
