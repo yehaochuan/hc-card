@@ -28,14 +28,14 @@ function updateHtmlStr(str) {
     let newStr = str.replace(/\[[\s\S]{0,20}\]/g, res => '<div class="title-start">' + res.slice(1, res.length - 1) + '</div>')
     newStr = newStr.replace(/\n[1-9](、)/g, res => '<span class="light-text">' + res + '</span>')
     newStr = newStr.replace(/\n/g, res => res + '<br/>')
-     
+
 
     console.log(newStr)
     return newStr
 }
 
 
-export default [
+const arr = [
     {
         name: '第一次工作经历',
         time: '2021.6~至今',
@@ -73,3 +73,5 @@ export default [
         ]
     }
 ]
+
+export default arr
