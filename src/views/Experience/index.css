@@ -70,3 +70,11 @@
     height: 29px;
     border-right: 1px solid aqua;
 }
+
+.title-start {
+    color: #ecb153;
+}
+
+.light-text {
+    color: rgb(94, 243, 243);
+}
